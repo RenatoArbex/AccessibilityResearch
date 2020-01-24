@@ -1,14 +1,14 @@
 # Accessibility Calculations
 
-This code calculates population-weighted average accessibility indicators for public transport network analysis using three methods: cumulative opportunies (fixed travel time threshold of 30, 60 and 90 minutes), gravity-based (from a calibrated negative exponential decay function) and zone-specific variable travel time threshold, as explained in the original paper in the link below: 
+This code calculates population-weighted average accessibility indicators for public transport network analysis using three methods: cumulative opportunities (fixed travel time threshold of 30, 60 and 90 minutes), gravity-based (from a calibrated negative exponential decay function) and zone-specific variable travel time threshold, as explained in the original paper in the link below: 
 
 - (link to paper - to update)
 
-To evaluate accessibility, a spatial unit must be chosen. In this repository, the spatial unit (cell) is defined by an ID, and a group of spatial units form a larger city area. The accessibility metrics are calculated for each zone ID, and then grouped for each region by calculating the population-weighted average accessibility for all indicators.
+To evaluate accessibility, a spatial unit must be chosen. In this repository, the spatial unit (cell) is defined by an ID, and a group of spatial units forms a larger city area. The accessibility metrics are calculated for each zone ID, and then grouped for each region by calculating the population-weighted average accessibility for all indicators.
 
 ## Data input
 
-The accessibility calculation requires 5 main files. We have used fictitious example data.
+The accessibility calculation requires 5 main files. We have used a fictitious example data.
 
 ### 1) Travel time matrix between the cells
 
@@ -28,7 +28,7 @@ Origin,Destination,Walk_distance,nboardings,Travel_time
 (...)
 ```
 
-### 2) Cell ID to larger area
+### 2) Cell ID to a larger area
 
 To group accessibility to larger areas, a ID to area file is needed. In the example data provided, we have used 5 areas, N (North), E (East), W (West), C (Central), S (South). The input file is a csv file named id_to_larger_area_xx.csv as below:
 
@@ -44,7 +44,7 @@ id,area
 
 ### 3) Job and Population data for each cell
 
-For accessibility calculations, we need to define the opportunity metric. We have chosen number of jobs, and the file required for this data is named id_jobs_pop_xx.csv as below:
+For accessibility calculations, we need to define the opportunity metric. We have chosen the number of jobs, and the file required for this data is named id_jobs_pop_xx.csv as below:
 
 ```
 id,jobs,pop
@@ -73,7 +73,7 @@ W,W,W-W,1100
 
 ### 5) Area-specific travel time threshold 
 
-In order to reduce the effect of the arbritrary definition of cutoff times for accessibility calculations, we have proposed the use of a variable area-specific travel time threshold to better reflect travel behavior. This file is named travel_time_limit_from_percentile_xx.csv and contains travel time threshold for each area. 
+In order to reduce the effect of the arbitrary definition of cutoff times for accessibility calculations, we have proposed the use of a variable area-specific travel time threshold to better reflect travel behavior. This file is named travel_time_limit_from_percentile_xx.csv and contains a travel time threshold for each area. 
 
 ```
 area,time
@@ -84,7 +84,7 @@ E,4800
 S,3600
 ```
 
-Finally, to estimate the effect of crowding on accessibility to opportunities, a new travel time matrix that considers the higher travel time perception due to crowdedness is required. The analysis then can be done with and without crowding perception to evaluate which areas in the region are more influenced by crowding discomfort and lower travel time reliability.
+Finally, to estimate the effect of crowding on accessibility to opportunities, a new travel time matrix that considers the higher travel time perception due to crowdedness is required. The analysis can be done with and without crowding perception to evaluate which areas in the region are more influenced by crowding discomfort and lower travel time reliability.
 
 This reposity provides the source code used for accessibility calculations as described in the paper (to be updated) thus enabling replicability for researchers in other regions.
 
@@ -94,5 +94,4 @@ This reposity provides the source code used for accessibility calculations as de
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
 ## Contact
-You can contact me at:
-renatoarbex@usp.br
+You can contact me at renatoarbex@usp.br for further questions, collaborations or open issues in this repository.
